@@ -1,7 +1,7 @@
-<app-navbar></app-navbar>
+<app-navbar (searchEvent)="handleSearch($event)"></app-navbar>
 
 <div style="background-color:rgb(21, 21, 22) ;" class=" continer product-container">
-  <h1 class="text-light fw-bolder">----All Products----</h1>
+  <h4 class="text-light mb-4 pt-3 text-center fw-bolder">----All Products----</h4>
 
   <!-- Cool Loading Animation -->
   <div *ngIf="isLoading" class="loader-container">
@@ -10,15 +10,19 @@
   </div>
 
   <!-- Product Grid (only show after loading completes) -->
-  <div *ngIf="!isLoading" class="product-grid container" >
-    <div class="product-card" *ngFor="let product of products">
-      <img [src]="product.thumbnail" [alt]="product.title" />
-      <h3>{{ product.title }}</h3>
-      <p>{{ product.description }}</p>
-      <p><strong>${{ product.price }}</strong></p>
-      <button (click)="viewProduct(product.id)">Full Details</button>
+  <div *ngIf="!isLoading" class="container">
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let product of filteredProducts">
+        <div class="product-card d-flex flex-column">
+          <img [src]="product.image" [alt]="product.title" />
+          <div class="product-details">
+            <h3>{{ product.title }}</h3>
+            <p><strong>${{ product.price }}</strong></p>
+            <button (click)="viewProduct(product.id)">Full Details</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
 <app-footer></app-footer>
