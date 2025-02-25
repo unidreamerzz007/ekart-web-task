@@ -1,8 +1,19 @@
 <app-navbar (searchEvent)="handleSearch($event)"></app-navbar>
 
-<div style="background-color:rgb(21, 21, 22) ;" class=" continer product-container">
-  <h4 class="text-light mb-4 pt-3 text-center fw-bolder">----All Products----</h4>
+<div
+  style="background-color: rgb(21, 21, 22)"
+  class="continer product-container"
+>
 
+<div class="container filter-icon text-light">
+ <div class="pt-5 fs-5 icon-group"> <i  class="bi bi-funnel-fill fw-bolder">filter</i></div>
+  <h4 class="text-light mb-4 pt-3 text-center fw-bolder">
+    ----All Products----
+  </h4>
+
+</div>
+
+ 
   <!-- Cool Loading Animation -->
   <div *ngIf="isLoading" class="loader-container">
     <div class="loader"></div>
@@ -12,12 +23,17 @@
   <!-- Product Grid (only show after loading completes) -->
   <div *ngIf="!isLoading" class="container">
     <div class="row g-4">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let product of filteredProducts">
+      <div
+        class="col-12 col-sm-6 col-md-4 col-lg-3"
+        *ngFor="let product of filteredProducts"
+      >
         <div class="product-card d-flex flex-column">
           <img [src]="product.image" [alt]="product.title" />
           <div class="product-details">
             <h3>{{ product.title }}</h3>
-            <p><strong>${{ product.price }}</strong></p>
+            <p>
+              <strong>${{ product.price }}</strong>
+            </p>
             <button (click)="viewProduct(product.id)">Full Details</button>
           </div>
         </div>
@@ -25,4 +41,5 @@
     </div>
   </div>
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</div>

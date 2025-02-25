@@ -1,4 +1,4 @@
-<nav class="navbar mt-0 w-100  pb-2 sticky-top navbar-expand-lg">
+<nav class="navbar mt-0 w-100 pb-2 sticky-top navbar-expand-lg">
   <div class="container-fluid row d-flex align-items-center justify-content-end">
     <a class="col navbar-brand fw-bold text-light ms-5" routerLink="/">Ecommerce</a>
 
@@ -7,21 +7,25 @@
       <li class="nav-item">
         <div class="container input-group mx-5">
           <span class="input-group-text bg-black border-end-0">
-            <i style="color:white" class="bi bi-search"></i>
+            <i style="color: white" class="bi bi-search"></i>
           </span>
-          <input  class="form-control w-70 border-start-0" type="search" placeholder="Search products..." aria-label="Search"  [(ngModel)]="searchQuery" 
-          (input)="onSearch()">
+          <input class="form-control w-70 border-start-0" type="search" placeholder="Search products..."
+            aria-label="Search" [(ngModel)]="searchQuery" (input)="onSearch()" />
         </div>
       </li>
     </ul>
 
     <!-- Cart and User Icons -->
     <ul class="col navbar-nav d-flex flex-row align-items-center justify-content-end">
-      <li class="nav-item ps-2"><a class="nav-link" href="#"><i class="text-light bi bi-cart"></i></a></li>
-      <li class="nav-item ps-2"><a class="nav-link" routerLink="/login"><i class="text-light bi bi-person"></i></a></li>
+      <li class="nav-item ps-2">
+        <a class="nav-link"  routerLink="/cart"><i class="text-light bi bi-cart"></i></a>
+      </li>
+      <li class="nav-item ps-2">
+        <a class="nav-link" routerLink="/login"><i class="text-light bi bi-person"></i></a>
+      </li>
     </ul>
   </div>
 </nav>
 
 <!-- Bootstrap Icons CDN -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />

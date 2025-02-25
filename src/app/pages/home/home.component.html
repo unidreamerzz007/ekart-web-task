@@ -139,44 +139,21 @@
   <!-- Final Section -->
   <div class="final-section my-">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4" *ngFor="let product of products; index as i" [hidden]="i >= 3">
         <div class="card text-white">
           <img style="width: 100%; height: 40vh; object-fit: contain;"
-            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" class="card-img-top" alt="Backpack">
+            [src]="product.image" class="card-img-top" [alt]="product.title">
           <div class="card-body text-center">
-            <h5 class="card-title">Fjallraven - Foldpack No. 1</h5>
-            <p>$109.95</p>
-            <button class="btn btn-light">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card text-white">
-          <img style="width: 100%; height: 40vh; object-fit: contain;"
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" class="card-img-top"
-            alt="T-Shirt">
-          <div class="card-body text-center">
-            <h5 class="card-title">Men’s Casual Premium Slim Fit T-Shirt</h5>
-            <p>$22.30</p>
-            <button class="btn btn-light">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card text-white">
-          <img style="width: 100%; height: 40vh; object-fit: contain;"
-            src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="card-img-top" alt="Jacket">
-          <div class="card-body text-center">
-            <h5 class="card-title">Men’s Cotton Jacket</h5>
-            <p>$55.99</p>
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p>${{ product.price }}</p>
             <button class="btn btn-light">Buy Now</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
+  
 
 </div>
 
