@@ -1,0 +1,183 @@
+<app-navbar (searchEvent)="navigateToProducts($event)"></app-navbar>
+
+<div style="background-color: rgb(21, 21, 22);" class="app-home">
+
+  <!-- Hero Section -->
+  <header>
+    <div class="row d-flex  text-white p-4 justify-content-between align-items-center">
+      <div class=" header-text col-md-8">
+        <h1>Grab up to 50% off on all laptop bags</h1>
+        <button   (click)="goToProducts()" class="btn btn-light mt-3">Buy Now →</button>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="https://jayant-ecommerce-angular.onrender.com/assets/laptopBag.png" alt="Laptop Bag"
+          class="img-fluid">
+      </div>
+    </div>
+  </header>
+
+  <!-- Cards Section -->
+  <section class="home-card my-4">
+    <div class="row">
+      <!-- First Card -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-white bg-danger">
+          <div class="card-body">
+            <h5 class="card-title">Revamp your home in style</h5>
+            <div class="row">
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/lighting.jpg" class="img-fluid" alt="Lighting">
+                <p>Lighting</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/vases.jpg" class="img-fluid" alt="Figurines">
+                <p>Figurines, vases & more</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/home%20storage.jpg" class="img-fluid" alt="Storage">
+                <p>Home storage</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/bedsheets.jpg" class="img-fluid" alt="Cushions">
+                <p>Cushion covers, bedsheets & more</p>
+              </div>
+            </div>
+            <a href="#" class="text-white">Explore more...</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Card -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-white bg-danger">
+          <div class="card-body">
+            <h5 class="card-title">Top mobile accessories for your smartphone</h5>
+            <div class="row">
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/powerbanks.jpg" class="img-fluid" alt="Powerbanks">
+                <p>Powerbanks</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/covers.jpg" class="img-fluid" alt="Cases">
+                <p>Cases and covers</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/cables.jpg" class="img-fluid" alt="Cables">
+                <p>Cables and chargers</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/neckband.jpg" class="img-fluid" alt="Headsets">
+                <p>Headsets</p>
+              </div>
+            </div>
+            <a href="#" class="text-white">Explore more...</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third Card -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-white bg-danger">
+          <div class="card-body">
+            <h5 class="card-title">Up to 60% off | Footwear & handbags</h5>
+            <div class="row">
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/sports%20shoes.jpg" class="img-fluid" alt="Sports shoes">
+                <p>Sports shoes</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/mens%20shoe.jpg" class="img-fluid" alt="Men's shoes">
+                <p>Men's shoes</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/women%20shoe.jpg" class="img-fluid" alt="Women's shoes">
+                <p>Women's shoes</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/handbags.jpg" class="img-fluid" alt="Handbags">
+                <p>Handbags</p>
+              </div>
+            </div>
+            <a href="#" class="text-white">Explore more...</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fourth Card -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-white bg-danger">
+          <div class="card-body">
+            <h5 class="card-title">Starting 99 | Home improvement essentials</h5>
+            <div class="row">
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/wiper.jpg" class="img-fluid" alt="Mops">
+                <p>Spin mops, wipes & more</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/bathroomHardware.jpg" class="img-fluid" alt="Bathroom accessories">
+                <p>Bathroom hardware & accessories</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/hammer.jpg" class="img-fluid" alt="Tools">
+                <p>Hammers, screwdrivers & more</p>
+              </div>
+              <div class="col-6">
+                <img src="https://jayant-ecommerce-angular.onrender.com/assets/extension.jpg" class="img-fluid" alt="Plugs">
+                <p>Extension boards, plugs & more</p>
+              </div>
+            </div>
+            <a href="#" class="text-white">Explore more...</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <h1 class="text-center text-light">---Trending Products---</h1>
+
+  <!-- Final Section -->
+  <div class="final-section my-">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card text-white">
+          <img style="width: 100%; height: 40vh; object-fit: contain;"
+            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" class="card-img-top" alt="Backpack">
+          <div class="card-body text-center">
+            <h5 class="card-title">Fjallraven - Foldpack No. 1</h5>
+            <p>$109.95</p>
+            <button class="btn btn-light">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card text-white">
+          <img style="width: 100%; height: 40vh; object-fit: contain;"
+            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" class="card-img-top"
+            alt="T-Shirt">
+          <div class="card-body text-center">
+            <h5 class="card-title">Men’s Casual Premium Slim Fit T-Shirt</h5>
+            <p>$22.30</p>
+            <button class="btn btn-light">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card text-white">
+          <img style="width: 100%; height: 40vh; object-fit: contain;"
+            src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="card-img-top" alt="Jacket">
+          <div class="card-body text-center">
+            <h5 class="card-title">Men’s Cotton Jacket</h5>
+            <p>$55.99</p>
+            <button class="btn btn-light">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

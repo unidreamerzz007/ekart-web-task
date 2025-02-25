@@ -1,0 +1,28 @@
+.navbar
+{
+  background: black;
+  color: white;
+  
+    .navbar-brand{
+      padding-left: 35px;
+      font-size: 32px;
+    }
+    .form-control{
+      // width: 40vw;
+      background-color: black;
+      border: 1px solid #fff;
+      color: white;
+
+    }
+
+    .form-control::placeholder{
+      color: white;
+    }
+
+  
+}
+
+.nav-item
+{
+  font-size: 32px;
+}
