@@ -50,6 +50,10 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
 
+  goToCart(product: any) {
+    this.router.navigate(['/cart'], { state: { product } });
+  }
+
   // Fetch 3 similar products by category
   fetchSimilarProducts(category: string, currentProductId: string) {
     fetch(`https://fakestoreapi.com/products/category/${category}`)

@@ -41,7 +41,9 @@ export class HomeComponent implements OnInit  {
       
       });
   }
-
+  goToCart(product: any) {
+    this.router.navigate(['/cart'], { state: { product } });
+  }
 
 
 }

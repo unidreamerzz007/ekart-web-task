@@ -1,3 +1,74 @@
 <app-navbar></app-navbar>
 
-<app-footer></app-footer>
+
+
+<div class="main-container" style="background-color: black;">
+
+  <div  style="background-color: #8b0000;  height: 100px;" class="mb-5 container rounded d-flex flex-column align-items-center justify-content-center">
+    <p class=" fw-bolder text-light text-center">Shop for $500 and more and get 10% discount on your order</p>
+</div>
+
+
+
+  <div class="container " style="background-color:  #8b0000; color: #fff; padding: 10px; border-radius: 10px;">
+    <h2 class="text-center" style="color: #fff;">Shopping cart</h2>
+  
+    <div *ngIf="cartItems.length > 0; else emptyCart">
+      <table class="table" style="color:  #a00">
+        <thead style="background-color: #a00;">
+          <tr >
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartItems; let i = index" style="background-color: #700;">
+            <td>
+              <img [src]="item.image" alt="{{ item.title }}" style="max-width: 100px; border: 1px solid #fff;">
+              <p style="color: #a00;">{{ item.title }}</p>
+            </td>
+            <td>${{ item.price }}</td>
+            <td>
+              <button class="btn text-dark btn-outline-light" (click)="decreaseQuantity(i)">-</button>
+              {{ item.quantity }}
+              <button class="btn text-dark btn-outline-light" (click)="increaseQuantity(i)">+</button>
+            </td>
+            <td>${{ item.price * item.quantity }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="removeFromCart(i)">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <h4>Delivery availability</h4>
+          <input type="text" class="form-control" placeholder="Enter your address">
+          <button style="background: black;" class="btn text-light mt-2">CHECK</button>
+        </div>
+        <div class="col-md-6 text-end">
+          <h4>Order Summary ({{ cartItems.length }} item{{ cartItems.length > 1 ? 's' : '' }})</h4>
+          <p>Subtotal: ${{ getTotalPrice().toFixed(2) }}</p>
+          <p>Total Discount: $0.00</p>
+          <p>Standard Shipping: $30.00</p>
+          <h3>Order Total: ${{( getTotalPrice() + 30).toFixed(2) }}</h3>
+          <button routerLink="/products" class="btn btn-light">Continue Shopping</button>
+          <button routerLink="/" class="btn btn-light mx-2">Checkout</button>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template  #emptyCart>
+   <div  style="height: 500px;" class="d-flex flex-column align-items-center justify-content-center">
+        <p class=" fw-bolder text-center">Item that will be added to cart will show here</p>
+        <button class="btn btn-light w-100 " routerLink="/products">Go back to shopping</button>.
+   </div>
+    </ng-template>
+  </div>
+  
+</div>
+<div class="sticky-bottom mt-auto"><app-footer></app-footer></div>

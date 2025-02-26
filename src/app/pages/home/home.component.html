@@ -146,7 +146,7 @@
           <div class="card-body text-center">
             <h5 class="card-title">{{ product.title }}</h5>
             <p>${{ product.price }}</p>
-            <button class="btn btn-light">Buy Now</button>
+            <button class="btn btn-light" (click)="goToCart(product)">Add to Cart</button>
           </div>
         </div>
       </div>
