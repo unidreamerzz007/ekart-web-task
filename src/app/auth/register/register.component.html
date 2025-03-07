@@ -1,46 +1,94 @@
 <app-navbar></app-navbar>
 
-<section class="vh-100" style="background-color: black;">
+<section class="vh-70" style="background-color: black">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card  text-white" style="border-radius: 1rem;background-color:rgb(176, 10, 10)">
+        <div class="card text-white" style="border-radius: 1rem; background-color: rgb(176, 10, 10)">
           <div class="card-body p-5 text-center">
-
             <div class="mb-md-5 mt-md-4 pb-5">
-
               <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
-              <p class="text-white-50 mb-5">Please enter your details to create an account!</p>
+              <p class="text-white-50 mb-5">
+                Please enter your details to create an account!
+              </p>
 
-              <div data-mdb-input-init class="form-outline form-white mb-4">
-                <input type="text" id="typeUsername" class="form-control form-control-lg" />
-                <label class="form-label" for="typeUsername">Username</label>
-              </div>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-outline form-white mb-4">
+                  <input type="text" class="form-control form-control-lg" formControlName="name"
+                    placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" />
+                  <div *ngIf="submitted && f['name'].errors" class="invalid-feedback d-block text-start">
+                    {{ getErrorMessage(f['name'], 'Username') }}
+                  </div>
+                </div>
 
-              <div data-mdb-input-init class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                <label class="form-label" for="typeEmailX">Email</label>
-              </div>
+                <div class="form-outline form-white mb-4">
+                  <input type="email" class="form-control form-control-lg" formControlName="email"
+                    placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                  <div *ngIf="submitted && f['email'].errors" class="invalid-feedback d-block text-start">
+                    {{ getErrorMessage(f['email'], 'Email') }}
+                  </div>
+                </div>
 
-              <div data-mdb-input-init class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                <label class="form-label" for="typePasswordX">Password</label>
-              </div>
+                <div class="form-outline form-white mb-4">
+                  <div class="input-group">
+                    <input 
+                      [type]="showPassword ? 'text' : 'password'"
+                      class="form-control form-control-lg" 
+                      formControlName="password"
+                      placeholder="Password" 
+                      [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" 
+                    />
+                    <button 
+                      class="btn btn-outline-light" 
+                      type="button" 
+                      (click)="togglePasswordVisibility()"
+                    >
+                      <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                    </button>
+                  </div>
+                  <div *ngIf="submitted && f['password'].errors" class="invalid-feedback d-block text-start">
+                    {{ getErrorMessage(f['password'], 'Password') }}
+                  </div>
+                </div>
 
-              <div data-mdb-input-init class="form-outline form-white mb-4">
-                <input type="password" id="typeConfirmPasswordX" class="form-control form-control-lg" />
-                <label class="form-label" for="typeConfirmPasswordX">Confirm Password</label>
-              </div>
+                <div class="form-outline form-white mb-4">
+                  <div class="input-group">
+                    <input 
+                      [type]="showConfirmPassword ? 'text' : 'password'"
+                      class="form-control form-control-lg" 
+                      formControlName="confirmPassword"
+                      placeholder="Confirm Password" 
+                      [ngClass]="{ 'is-invalid': submitted && (f['confirmPassword'].errors || registerForm.hasError('mismatch')) }" 
+                    />
+                    <button 
+                      class="btn btn-outline-light" 
+                      type="button" 
+                      (click)="toggleConfirmPasswordVisibility()"
+                    >
+                      <i class="bi" [ngClass]="showConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                    </button>
+                  </div>
+                  <div *ngIf="submitted && (f['confirmPassword'].errors || registerForm.hasError('mismatch'))" class="invalid-feedback d-block text-start">
+                    {{ getErrorMessage(f['confirmPassword'], 'Confirm Password') }}
+                  </div>
+                </div>
 
-              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">
+                  Register
+                </button>
 
+                <div *ngIf="registrationSuccess" class="alert alert-success mt-3">
+                  Registration Successful! Redirecting to login page...
+                </div>
+              </form>
             </div>
 
             <div>
-              <p class="mb-2">Already have an account?</p> 
-              <button routerLink="/login" class="btn btn-light px-5 text-danger fw-bold">Login</button>
+              <p class="mb-2">Already have an account?</p>
+              <button routerLink="/login" class="btn btn-light px-5 text-danger fw-bold">
+                Login
+              </button>
             </div>
-
           </div>
         </div>
       </div>

@@ -1,39 +1,57 @@
 <app-navbar (searchEvent)="handleSearch($event)"></app-navbar>
 
-<div
-  style="background-color: rgb(21, 21, 22)"
-  class="continer product-container"
->
+<div style="background-color: rgb(21, 21, 22)" class=" product-container">
+  <div class="container filter-icon text-light">
+    <!-- Modal Trigger -->
+    <div class="pt-5 fs-5 icon-group">
+      <i class="bi bi-funnel-fill fw-bolder" (click)="openModal()">filter</i>
+    </div>
 
-<div class="container filter-icon text-light">
- <div class="pt-5 fs-5 icon-group"> <i  class="bi bi-funnel-fill fw-bolder">filter</i></div>
-  <h4 class="text-light mb-4 pt-3 text-center fw-bolder">
-    ----All Products----
-  </h4>
+    <h4 class="text-light mb-4 pt-3 text-center fw-bolder">
+      ----All Products----
+    </h4>
+  </div>
 
-</div>
+  <!-- Bootstrap Modal -->
+  <div class="modal" tabindex="-1" [ngClass]="{'show': showModal}" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Filter Products</h5>
+          <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
 
- 
+        <div class="modal-body">
+          <label class="form-label">Category:</label>
+          <select class="form-select" [(ngModel)]="selectedCategory" (change)="applyFilters()">
+            <option value="">All</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+          </select>
+
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Cool Loading Animation -->
   <div *ngIf="isLoading" class="loader-container">
     <div class="loader"></div>
     <p>Loading products...</p>
   </div>
 
-  <!-- Product Grid (only show after loading completes) -->
+  <!-- Product Grid -->
   <div *ngIf="!isLoading" class="container">
     <div class="row g-4">
-      <div
-        class="col-12 col-sm-6 col-md-4 col-lg-3"
-        *ngFor="let product of filteredProducts"
-      >
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let product of filteredProducts">
         <div class="product-card d-flex flex-column">
           <img [src]="product.image" [alt]="product.title" />
           <div class="product-details">
             <h5 class="fw-bolder">{{ product.title }}</h5>
-            <p>
-              <strong>${{ product.price }}</strong>
-            </p>
+            <p><strong>${{ product.price }}</strong></p>
             <button class="fw-bolder" (click)="viewProduct(product.id)">Full Details</button>
           </div>
         </div>

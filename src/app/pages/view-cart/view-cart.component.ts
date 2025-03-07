@@ -22,8 +22,9 @@ export class ViewCartComponent implements OnInit {
       this.cartItems = JSON.parse(storedCart);
     }
 
+    // Only add new product if it's coming from product details page
     const newProduct = history.state.product;
-    if (newProduct) {
+    if (newProduct && history.state.isNewAddition) {
       this.addToCart(newProduct);
     }
   }

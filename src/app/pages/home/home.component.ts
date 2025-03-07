@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit  {
       });
   }
   goToCart(product: any) {
-    this.router.navigate(['/cart'], { state: { product } });
+    this.router.navigate(['/cart'], { state: { product, isNewAddition: true } });
   }
 
 

@@ -51,7 +51,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   goToCart(product: any) {
-    this.router.navigate(['/cart'], { state: { product } });
+    this.router.navigate(['/cart'], { state: { product, isNewAddition: true } });
   }
 
   // Fetch 3 similar products by category
